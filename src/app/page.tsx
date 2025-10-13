@@ -118,7 +118,7 @@ function Hero() {
 
               <a
                 href="#personal-life"
-                className="inline-flex items-center gap-2 mt-5 text-sm font-semibold text-rose-600 hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
+                className="inline-flex items-center gap-2 mt-5 text-lg font-semibold text-rose-600 hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
               >
                <span>→ See more about my personal life</span>
               </a>
