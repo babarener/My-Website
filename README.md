@@ -1,8 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Personal Website — Xinyu (Frank) Bo
 
-## Getting Started
+This repository contains the source code for my **personal portfolio website**, built with **Next.js 15**, **React**, and **Tailwind CSS**. It showcases my background, projects, and interests through a modern and responsive design.
 
-First, run the development server:
+> Deployed on **Vercel** with automatic builds on push to `main`.
+
+---
+
+## 🚀 Getting Started
+
+To run the development server locally:
 
 ```bash
 npm run dev
@@ -14,23 +20,80 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **http://localhost:3000** in your browser. The site hot-reloads as you edit files.  
+Main entry: `app/page.tsx`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Tech Stack
 
-## Learn More
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **UI:** React + Tailwind CSS (dark mode supported)
+- **Animation:** Framer Motion
+- **Fonts:** `next/font` (Geist)
+- **Hosting:** Vercel
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Responsive, minimalist layout for all devices
+- Light/dark theme toggle
+- Smooth section animations
+- Modular component structure (`/components`, `/sections`)
+- CI/CD with Vercel (preview deployments on PRs)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧩 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+/
+├── app/
+│   ├── layout.tsx        # Root layout & metadata
+│   ├── page.tsx          # Landing page
+│   └── globals.css       # Global styles
+├── components/           # Reusable UI components
+├── sections/             # About, Projects, Personal Life, etc.
+├── public/               # Static assets (images, icons, videos)
+├── tailwind.config.ts    # Tailwind configuration
+└── tsconfig.json         # TypeScript configuration
+```
+
+---
+
+## 📦 Scripts
+
+- `dev` — start local development server
+- `build` — production build
+- `start` — start production server
+- `lint` — run ESLint
+
+---
+
+## 🚀 Deployment
+
+The easiest way to deploy is via **Vercel**:
+
+1. Click “Import Project” on Vercel and select this repo.  
+2. Use defaults for a Next.js app; no extra config needed.  
+3. Every push to `main` will trigger an automatic build and deployment.
+
+---
+
+## 📘 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js on GitHub](https://github.com/vercel/next.js)
+
+---
+
+## 👤 Author
+
+**Xinyu (Frank) Bo** — Waterloo, ON  
+[LinkedIn](https://linkedin.com/in/xinyubo) • [GitHub](https://github.com/xinyubo)
+
+
+
