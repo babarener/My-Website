@@ -9,6 +9,7 @@ import Projects from "../components/sections/Projects";
 import Connect from "../components/sections/Connect";
 
 
+
 export default function HomePage() {
   return (
     <div className="space-y-16 sm:space-y-20">

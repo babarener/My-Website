@@ -11,13 +11,7 @@ export const metadata = {
   title: "Frank Bo - Portfolio",
   description: "Personal portfolio website",
   icons: {
-    icon: [
-      { url: "/avatar.jpg", type: "image/jpeg", sizes: "32x32" },
-      { url: "/avatar.jpg", type: "image/jpeg", sizes: "192x192" },
-      { url: "/avatar.jpg", type: "image/jpeg", sizes: "any" },
-    ],
-    // 可选：iOS 桌面图标，若有 180x180 版本就放它
-    apple: "/avatar.jpg",
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
   },
 };
 
