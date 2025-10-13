@@ -11,7 +11,7 @@ export default function Connect() {
 
       {/* 简介文字 */}
       <p className="text-lg text-zinc-700 dark:text-zinc-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        If you're interested in my story and still think I could possibly strengthen your team,
+        If you’re interested in my story and still think I could possibly strengthen your team,
         please contact me! Looking forward to any opportunities.
       </p>
 

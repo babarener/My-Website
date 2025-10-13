@@ -87,11 +87,11 @@ function Hero() {
               </p>
 
               <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                For most of my early life, I didn't think much about direction or purpose; I simply went with what felt comfortable. It wasn't until high school that I started learning to take control of my time and develop a sense of ambition. 
+                For most of my early life, I didn’t think much about direction or purpose; I simply went with what felt comfortable. It wasn’t until high school that I started learning to take control of my time and develop a sense of ambition. 
               </p>
 
               <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Entering university, I still saw myself primarily as a student—following instructions and absorbing what others taught. But over time, I've gained perspective and skills, and I've begun asking deeper questions about why I exist and how I can bring values. I want to contribute to something meaningful, to help build a better future. I'm genuinely glad that I've come to think this way, and I will to keep moving forward in that direction.
+                Entering university, I still saw myself primarily as a student—following instructions and absorbing what others taught. But over time, I’ve gained perspective and skills, and I’ve begun asking deeper questions about why I exist and how I can bring values. I want to contribute to something meaningful, to help build a better future. I’m genuinely glad that I’ve come to think this way, and I will to keep moving forward in that direction.
               </p>
             </div>
 
@@ -109,9 +109,9 @@ function Hero() {
 
               <p className="mt-4 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 Those are what I usually put on my resume.  
-                But I'm more than that. I'm a real, curious, sometimes uncertain person trying to figure things out.  
-                I'm grateful for what I have, and I hope to create something that makes the world around me a little better.  
-                I'm a <strong>competing powerlifter</strong>, a <strong>Go player</strong>, a <strong>music lover</strong>, and a <strong>traveler....</strong> I enjoys learning about different cultures and ideas that make me more complete as a person
+                But I’m more than that. I’m a real, curious, sometimes uncertain person trying to figure things out.  
+                I’m grateful for what I have, and I hope to create something that makes the world around me a little better.  
+                I’m a <strong>competing powerlifter</strong>, a <strong>Go player</strong>, a <strong>music lover</strong>, and a <strong>traveler....</strong> I enjoys learning about different cultures and ideas that make me more complete as a person
               </p>
 
 
@@ -130,10 +130,10 @@ function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-center gap-2">
               <span className="text-lg">⏳</span>
-              <h4 className="font-semibold text-zinc-900 dark:text-zinc-100">What I'm focusing on Now</h4>
+              <h4 className="font-semibold text-zinc-900 dark:text-zinc-100">What I’m focusing on Now</h4>
             </div>
             <p className="text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              These days, I'm learning how to slow down and think deeper — to build with intention, not just efficiency. I'm exploring how technology, design, and discipline intersect to create something truly meaningful.
+              These days, I’m learning how to slow down and think deeper — to build with intention, not just efficiency. I’m exploring how technology, design, and discipline intersect to create something truly meaningful.
             </p>
           </div>
         </div>
