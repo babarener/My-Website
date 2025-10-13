@@ -93,7 +93,7 @@ The easiest way to deploy is via **Vercel**:
 ## 👤 Author
 
 **Xinyu (Frank) Bo** — Waterloo, ON  
-[LinkedIn](https://linkedin.com/in/xinyubo) • [GitHub](https://github.com/xinyubo)
+[LinkedIn](https://www.linkedin.com/in/frank-xinyu-bo-27046627b)
 
 
 
