@@ -32,10 +32,10 @@ export default function Education() {
         </div>
 
         {/* 主体内容（无时间线，icon 居中，右侧留白） */}
-        <div className="px-6 sm:px-10 pt-12 pb-8">
-          <div className="grid grid-cols-[72px_1fr] gap-4 pr-4 sm:pr-6 xl:pr-8">
+        <div className="px-4 sm:px-10 pt-12 pb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-[72px_1fr] gap-4 pr-0 sm:pr-6 xl:pr-8">
             {/* 左侧：仅保留 icon，垂直水平居中 */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-start sm:justify-center">
               <div className="h-12 w-12 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700 flex items-center justify-center text-sm font-semibold text-zinc-700 dark:text-zinc-200">
                 <img
                     src="/media/Education/uwicon.png"   
@@ -46,7 +46,7 @@ export default function Education() {
             </div>
 
             {/* 右侧内容卡片（占满右列，右侧有间距） */}
-            <article className="w-full rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6">
+            <article className="w-full rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/40 p-4 sm:p-6">
 
               <h3 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
                 BMath, Data Science — Minor in Combinatorics & Optimization
