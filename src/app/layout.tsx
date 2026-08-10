@@ -25,9 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
 
           {/* 给主内容留出顶部内边距，避免被 fixed Navbar 遮挡 */}
-          <div className="mx-auto max-w-screen-xl px-4 sm:px-6">
+          <div className="mx-auto max-w-screen-xl px-3 sm:px-6">
 
-            <main className="pt-[7.5rem] sm:pt-[8.5rem] pb-10">{children}</main>
+            <main className="pt-6 sm:pt-10 pb-10">{children}</main>
 
             <Footer />
           </div>
