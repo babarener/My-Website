@@ -76,8 +76,8 @@ function Hero() {
         </div>
 
         {/* 文字主体（两栏） */}
-        <div className="px-6 sm:px-10 pt-12 pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="px-4 sm:px-10 pt-12 pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* 左列 */}
             <div>
               <h3 className="flex items-center gap-2 text-zinc-900 dark:text-zinc-100 font-semibold">
@@ -118,7 +118,7 @@ function Hero() {
 
               <a
                 href="#personal-life"
-                className="inline-flex items-center gap-2 mt-5 text-lg font-semibold text-rose-600 hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
+                className="inline-flex items-start gap-2 mt-5 text-base sm:text-lg font-semibold break-words text-rose-600 hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
               >
                <span>→ See more about my personal life</span>
               </a>
