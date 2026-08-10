@@ -29,45 +29,45 @@ export default function Navbar() {
       >
         <div
           className={[
-            "mx-auto max-w-6xl px-6 flex items-center justify-between gap-6",
+            "mx-auto max-w-6xl px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-6", 
             "transition-all duration-300",
-            scrolled ? "py-1" : "py-4",
+            scrolled ? "py-1.5 sm:py-1" : "py-2 sm:py-4",
             ].join(" ")}
         >
           {/* 左侧：头像 + 名字 + 简介（滚动时隐藏姓名与简介，头像缩小） */}
-          <div className="flex items-center gap-4 sm:gap-5 min-w-0">
+          <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-5">
             <img
               src="/frank.jpg"
               alt="Frank Bo"
               className={[
                 "rounded-full border-4 border-zinc-200 dark:border-zinc-800 object-cover",
                 "transition-all duration-300",
-                scrolled ? "w-10 h-10 border-2" : "w-28 h-28",
+                scrolled ? "w-9 h-9 sm:w-10 sm:h-10 border-2" : "w-14 h-14 sm:w-28 sm:h-28",
               ].join(" ")}
             />
 
             <div
               className={[
-                "transition-all duration-300 origin-left",
+                "min-w-0 transition-all duration-300 origin-left",
                 scrolled
                   ? "opacity-0 scale-95 -translate-x-2 pointer-events-none select-none"
                   : "opacity-100 scale-100 translate-x-0",
               ].join(" ")}
             >
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+              <h1 className="text-base leading-tight sm:text-3xl font-bold tracking-tight break-words">
                 Xinyu (Frank) Bo
               </h1>
-              <p className="mt-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-md">
+              <p className="hidden sm:block mt-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-md">
                 4th Year Data Science Student at University of Waterloo 
               </p>
-              <p className="mt-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-md">
+              <p className="hidden sm:block mt-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base max-w-md">
                 Driven by curiosity — learning, building, and refining.
               </p>
             </div>
           </div>
 
           {/* 右侧：社交图标 + 邮件 + 暗黑模式 */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
             <SocialLinks />
             <EmailButton email="xbo@uwaterloo.ca" />
             <ThemeToggle />
@@ -78,7 +78,7 @@ export default function Navbar() {
       {/* 顶部占位，避免内容被固定导航遮挡 */}
       <div
         aria-hidden="true"
-        className={scrolled ? "h-[44px]" : "h-[120px] sm:h-[128px]"}
+        className={scrolled ? "h-[42px] sm:h-[44px]" : "h-[72px] sm:h-[128px]"}
       />
     </>
   );
@@ -119,7 +119,7 @@ function SocialLinks() {
     "inline-flex items-center justify-center rounded-full h-10 w-10 sm:h-11 sm:w-11 border border-zinc-200/70 dark:border-zinc-800/70 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 text-zinc-700 dark:text-zinc-300";
 
   return (
-    <nav aria-label="Social links" className="flex items-center gap-2 sm:gap-3">
+    <nav aria-label="Social links" className="hidden sm:flex items-center gap-2 sm:gap-3">
       {/* GitHub */}
       <a
         href="https://github.com/babarener"
