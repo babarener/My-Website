@@ -1,227 +1,104 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
-type Media =
-  | { type: "image"; src: string; alt?: string }
-  | { type: "video"; src: string; poster?: string }
-  | { type: "iframe"; src: string };
-
-type Item = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  blurb: string;
-  media: Media;
-};
-
-const ITEMS: Item[] = [
+const stories = [
   {
-    id: "Powerlifting competition",
-    title: "Powerlifting Enthusiast",
-    subtitle: "Discipline • Perseverance • Passion",
-    blurb:
-      "I've loved sports for as long as I can remember—always running around  and trying every “sport” I could find. In junior high, I began formal track and field training, and over the years I explored everything from basketball, badminton to tennis, fencing, calisthenics, etc. A few years ago, I discovered powerlifting and immediately fell in love with it. I now train 20+ hours a week and compete regularly. Powerlifting has become a critical part of my life. Through years of training, I've learned far more than just strength—I've learned reflection, stay focused, persevere, endure, and manage my emotions. It become an essential part of my growth into adulthood and a defining force in how I approach challenges in life.",
-    media: {
-      type: "video",
-      src: "/media/personal-life/lifting.mp4",
-      poster: "",
-    },
+    id: "powerlifting", label: "Powerlifting", title: "Powerlifting",
+    subtitle: "Understanding myself. Finding my pace.",
+    caption: "On the platform", kind: "video",
+    paragraphs: [
+      "After trying more than a dozen sports, powerlifting is the one I’ve trained in consistently for years, and the one where I don’t see a finish line.",
+      "I started with more confidence than understanding. I thought I was naturally gifted, trained without much thought, and rarely listened to advice. Eventually, a lower back injury left me struggling to even roll over in bed for months.",
+      "As I learned more and began competing, I met people far stronger and more experienced than me. Seeing how quickly others progressed turned that early confidence into self-doubt. I pushed harder to catch up, often beyond what I could recover from, and spent long stretches working hard without moving forward.",
+      "Over the years, my biggest gain has been a better understanding of myself. I’ve learned to train with purpose, recognize my own rate of progress, and follow my own pace without letting every comparison change my direction. I can’t control how quickly someone else improves, but I can control how I approach my own training.",
+      "Today, training and competing are an integral part of my life, with around 20 hours a week devoted to training and everything around it. Progress is often slow and rarely linear, but it’s still happening. I’m grateful I stayed with it when I doubted myself most. As long as I keep learning and don’t give up, I trust that the overall direction will be forward, even through the ups and downs.",
+    ],
   },
   {
-    id: "go",
-    title: "The Game of Go",
-    subtitle: "Calmness • Strategy • Flow",
-    blurb:
-      "Growing up in Asia, I was one of those kids who went to all kinds of extracurricular classes—music, fencing, Go, you name it. I must have learned at least five instruments, though most didn’t last beyond a few months😂. Go, however, is the one thing that stayed with me. I wasn't very good as a child, and there were years when I didn't play at all. But when I picked it up again in high school, I began to truly appreciate its depth. To play well, you have to quiet your thought and find stillness before the game, much like meditation. I’ve found this practice very helpful when I feel anxious or mentally blank. Go is about rhythm, strategy, and calculation—how every stone, placed dozens of moves ago can unexpectedly shift the entire flow of the board. I still enjoy playing now, spending sometimes on online platforms.",
-    media: {
-      type: "image",
-      src: "/media/personal-life/go.jpg",
-      alt: "Playing Go board",
-    },
+    id: "go", label: "Go", title: "The Game of Go",
+    subtitle: "Returning to an old game with a different mindset.",
+    caption: "Back at the board", kind: "image",
+    paragraphs: [
+      "I learned Go as a child and spent much of my school holidays at a Go day camp. Back then, I was mostly there to play. I didn’t really know how to focus my learning, and after years of playing, I reached an amateur 3-dan level before stopping when I started middle school.",
+      "Nearly a decade later, I realized that outside of lifting, I didn’t have another lasting hobby. Short videos and TV filled the gaps, but I quickly grew restless. Eventually, I found my way back to Go through online platforms.",
+      "I was surprised by how much the learning experience had changed. Where I once worked through books, following numbered moves and variations on a printed board, I could now explore seemingly endless, well-organized problem libraries and use AI feedback to understand different approaches. Returning also showed me how much I had changed. I was learning with more focus and picking things up much faster. Before long, I caught up with and moved beyond my childhood level.",
+      "Now, I often solve life-and-death problems on the subway or play a game during a break. It’s fun. Even after all these years, I’m still surprised by moves that turn a seemingly hopeless position into a way out.",
+      "There’s an old Go saying: “Your opponent’s key point is your own.” Before choosing a move, consider where your opponent most wants to play. Often, that is exactly where you should play yourself.",
+      "That habit of looking from the other side has stayed with me beyond the board. Whenever I’m given a task, I first make sure I understand what the other person needs and what they’re trying to achieve.",
+    ],
   },
   {
-    id: "video",
-    title: "日本の音楽(Japanese Music)",
-    subtitle: "Subtle emotion • Cultural curiosity",
-    blurb:
-      "Back then (junior high), I was drawn to 80's Hong Kong music, which the melodies were graceful, soft, and often carried a quiet sense of storytelling that deeply moved me. Later, as the internet opened up, I discovered that many of those songs actually originated from Japan, which sparked my curiosity. I began listening to the Japanese versions and found them even more captivating—not only because the original singers conveyed the songs with deeper emotion, but also because there was something beautiful in not fully understanding the lyrics. That slight distance made me reflect on my own experiences. Now that I've started learning Japanese and can hold simple conversations, I've come to appreciate how subtle yet expressive the language is. Someday, I wish I could live and work in Japan for a while to experience that culture firsthand.",
-    media: {
-      type: "iframe",
-      src: "https://www.youtube.com/embed/JZem5vnQ1ik",
-    },
+    id: "music", label: "Japanese Music", title: "日本の音楽",
+    subtitle: "An unexpected connection through music.",
+    caption: "A song to listen to", kind: "iframe",
+    paragraphs: [
+      "Growing up, the views around me shaped a negative impression of Japan, and for a while, I had little interest in learning about it.",
+      "That started to change in high school, when I became hooked on Hong Kong music from the 1980s. I loved the graceful melodies, often drawn in by the opening notes alone. Later, I discovered that many of my favourites were adaptations of Japanese songs with Cantonese lyrics. Naturally, I went looking for the originals, and they led me to more music I loved.",
+      "I was truly impressed. I loved the sound of the language and the subtle emotions in the songs, which felt difficult to capture in translation. I even started learning Japanese so I could sing them myself.",
+      "Today, Japanese songs make up around 80% of my playlist, and I sing along all the time when I’m driving. What began with a familiar melody opened up an interest in a language and culture I once knew very little about. Someday, I’d love to live and work in Japan for a while and experience it firsthand.",
+    ],
   },
-  {
-     id: "curiosity",
-     title: "Curiosity & Exploration",
-     subtitle: "Evyerything • openmindedness • learning",
-     blurb:
-       "Outside of training and work, I like keeping my curiosity alive. I often play basketball with friends and have joined intramural games almost every semester. I also enjoy reading books about the business world—not too technical, mostly biographies and analyses that connect historical trends with the enduring principles that keep resurfacing through change. Recently, I’ve been especially fascinated by large language models, blockchain systems & encryptos, and the evolution of AR technologies. I often find myself thinking about how these innovations might reshape social structures, human relationships, and the subtle ripple effects they could bring to our future. I'd love to get involved in real projects that explore these ideas, so, if you think my passion and background could contribute to your team, please reach out!! 👋",
-     media: {
-       type: "image",
-       src: "/media/personal-life/past-present-future.jpg",
-       alt: "past-present-future",
-     },
-   },
 ];
 
 export default function PersonalLife() {
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const root = scrollerRef.current;
-    if (!root) return;
-    const cards = Array.from(root.querySelectorAll<HTMLElement>("[data-card]"));
-    const io = new IntersectionObserver(
-      (entries) => {
-        const vis = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (vis[0]) setActive(Number((vis[0].target as HTMLElement).dataset.index));
-      },
-      { root, threshold: 0.6, rootMargin: "0px -20% 0px -20%" }
-    );
-    cards.forEach((c) => io.observe(c));
-    return () => io.disconnect();
-  }, []);
-
-  const scrollTo = (i: number) => {
-    const el = scrollerRef.current?.querySelector<HTMLElement>(`[data-card][data-index="${i}"]`);
-    el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-    setActive(i);
-  };
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const story = stories[active];
 
   return (
-    <section id="personal-life" className="scroll-mt-28 sm:scroll-mt-32">
-      {/* === 外层容器：与 AboutMe 完全一致的对齐与样式 === */}
-      <div className="relative w-full max-w-screen-xl mx-auto overflow-hidden rounded-3xl border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm bg-white dark:bg-zinc-950">
-        {/* 顶部花纹带（与 AboutMe 相同高度与风格） */}
-        <div className="relative h-12 sm:h-14">
-           <div className="absolute inset-0 bg-gradient-to-r from-rose-50 via-pink-50 to-fuchsia-50 dark:from-[#1b1419] dark:via-[#211620] dark:to-[#251a24]" />
-
-          {/* 标题胶囊：精确居中在粉/白交界（与 AboutMe 一致做法） */}
-          <div className="absolute left-4 sm:left-6 -bottom-6 flex items-center">
-            <div className="inline-flex items-center gap-3 rounded-full bg-white/90 dark:bg-zinc-900/80 backdrop-blur px-4 py-2 shadow-md ring-1 ring-zinc-200/70 dark:ring-zinc-800/70">
-              <span className="text-lg">🌿</span>
-              <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Personal Life</h2>
-            </div>
+    <section id="personal-life" aria-labelledby="personal-life-heading" className="scroll-mt-28 rounded-3xl border border-zinc-200 bg-[#faf9f6] text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100 sm:scroll-mt-32">
+      <div className="px-6 py-9 sm:px-10 sm:py-12 lg:px-14">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-teal-800 dark:text-teal-300">Away from the desk</p>
+            <h2 id="personal-life-heading" className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Personal Life</h2>
           </div>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">Three things I keep coming back to.</p>
         </div>
 
-        {/* 内容主体（与 AboutMe 相同的内边距；顶部为标题悬浮预留） */}
-        <div className="px-6 sm:px-10 pt-12 pb-8">
-          {/* 滚动容器（外层包一层，放更“靠外”的箭头与渐隐遮罩） */}
-          <div className="relative">
-            {/* 左侧渐隐遮罩（不影响点击） */}
-            <div className="pointer-events-none absolute inset-y-0 -left-1 w-10 sm:w-14 bg-gradient-to-r from-white/90 to-transparent dark:from-zinc-950/85 z-10" />
-            {/* 右侧渐隐遮罩 */}
-            <div className="pointer-events-none absolute inset-y-0 -right-1 w-10 sm:w-14 bg-gradient-to-l from-white/90 to-transparent dark:from-zinc-950/85 z-10" />
-
-            {/* 左箭头（外侧悬浮，玻璃态 + 霓虹环） */}
-            <button
-              onClick={() => scrollerRef.current?.scrollBy({ left: -window.innerWidth, behavior: "smooth" })}
-              className="hidden sm:flex absolute -left-8 top-[40%] -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white/70 dark:bg-zinc-800/70 backdrop-blur ring-1 ring-pink-300/60 dark:ring-pink-400/30 shadow-lg hover:scale-110 hover:bg-pink-50/80 dark:hover:bg-zinc-700/80 transition"
-              aria-label="Scroll left"
-              type="button"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-5 w-5" fill="none">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-              </svg>
+        <div role="tablist" aria-label="Personal interests" className="mt-8 grid grid-cols-3 gap-2 border-b border-zinc-300/70 pb-5 sm:gap-4 dark:border-zinc-700">
+          {stories.map((item, i) => (
+            <button key={item.id} ref={(el) => { tabs.current[i] = el; }} type="button" role="tab" id={`life-tab-${item.id}`} aria-selected={active === i} aria-controls={`life-panel-${item.id}`} tabIndex={active === i ? 0 : -1}
+              onClick={() => setActive(i)}
+              onKeyDown={(event) => {
+                let next = i;
+                if (event.key === "ArrowRight") next = (i + 1) % stories.length;
+                else if (event.key === "ArrowLeft") next = (i + stories.length - 1) % stories.length;
+                else if (event.key === "Home") next = 0;
+                else if (event.key === "End") next = stories.length - 1;
+                else return;
+                event.preventDefault(); setActive(next); tabs.current[next]?.focus();
+              }}
+              className={`rounded-xl px-3 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 sm:px-5 sm:py-4 ${active === i ? "bg-teal-900 text-white dark:bg-teal-800" : "text-zinc-600 hover:bg-zinc-200/50 dark:text-zinc-300 dark:hover:bg-zinc-800"}`}>
+              <span className={`block text-[10px] tracking-widest ${active === i ? "text-teal-200" : "text-zinc-400"}`}>0{i + 1}</span>
+              <span className="mt-1.5 block text-xs font-medium sm:text-base">{item.label}</span>
             </button>
+          ))}
+        </div>
 
-            {/* 右箭头（外侧悬浮） */}
-            <button
-              onClick={() => scrollerRef.current?.scrollBy({ left: window.innerWidth, behavior: "smooth" })}
-              className="hidden sm:flex absolute -right-8 top-[40%] -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white/70 dark:bg-zinc-800/70 backdrop-blur ring-1 ring-pink-300/60 dark:ring-pink-400/30 shadow-lg hover:scale-110 hover:bg-pink-50/80 dark:hover:bg-zinc-700/80 transition"
-              aria-label="Scroll right"
-              type="button"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-5 w-5" fill="none">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-              </svg>
-            </button>
-
-            {/* 真正的滚动容器：给左右留一点内边距，避免内容贴边 */}
-            <div
-              ref={scrollerRef}
-              className="overflow-x-auto snap-x snap-mandatory flex gap-0 pb-6 scroll-smooth px-2 sm:px-4"
-            >
-              {ITEMS.map((it, i) => (
-                <article
-                  key={it.id}
-                  data-card
-                  data-index={i}
-                  className="min-w-full snap-center"
-                >
-                  <div className="mx-auto w-[96%] min-h-[320px] sm:min-h-[360px] rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/80 dark:bg-zinc-900/60 shadow-sm">
-                    {/* 左右各一半的布局 */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center p-6">
-                      {/* 左半：视频/图片/iframe */}
-                      <div className="flex justify-center">
-                        {it.media.type === "image" ? (
-                          <img
-                            src={it.media.src}
-                            alt={("alt" in it.media && it.media.alt) || it.title}
-                            className="w-full h-[280px] sm:h-[320px] object-cover rounded-xl"
-                            loading="lazy"
-                          />
-                        ) : it.media.type === "iframe" ? (
-                          <iframe
-                            src={it.media.src}
-                            title={it.title}
-                            className="w-full h-[280px] sm:h-[320px] rounded-xl"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
-                        ) : (
-                          <video
-                            src={it.media.src}
-                            poster={it.media.poster}
-                            controls
-                            playsInline
-                            className="w-full h-[280px] sm:h-[320px] rounded-xl object-cover"
-                          />
-                        )}
-                      </div>
-
-                      {/* 右半：标题 + 文本 */}
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-semibold">{it.title}</h3>
-                        {it.subtitle && (
-                          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                            {it.subtitle}
-                          </p>
-                        )}
-                        <p className="mt-4 leading-7 text-zinc-700 dark:text-zinc-300">
-                          {it.blurb}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+        <div key={story.id} role="tabpanel" id={`life-panel-${story.id}`} aria-labelledby={`life-tab-${story.id}`} tabIndex={0} className="mt-8 grid items-start gap-8 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600 lg:mt-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+          <div className="lg:sticky lg:top-28">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">0{active + 1} / Personal stories</p>
+            <h3 className="mt-3 font-serif text-4xl leading-tight tracking-tight sm:text-5xl" lang={story.id === "music" ? "ja" : undefined}>{story.title}</h3>
+            {story.id === "music" && <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">Japanese Music</p>}
+            <p className="mt-4 max-w-sm text-base leading-7 text-teal-900 dark:text-teal-200">{story.subtitle}</p>
+            <figure className="mt-7">
+              <div className="overflow-hidden rounded-2xl bg-zinc-900">
+                {story.kind === "video" ? (
+                  <video controls playsInline preload="metadata" src="/media/personal-life/lifting.mp4" poster="/media/personal-life/lifting-poster.jpg" className="aspect-[4/3] w-full object-contain" aria-label="Powerlifting competition video" />
+                ) : story.kind === "image" ? (
+                  <Image src="/media/personal-life/go.jpg" alt="A game of Go" width={900} height={900} className="h-auto w-full" />
+                ) : (
+                  <iframe src="https://www.youtube.com/embed/JZem5vnQ1ik" title="Japanese music video" className="aspect-video w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                )}
+              </div>
+              <figcaption className="mt-3 text-xs text-zinc-500 dark:text-zinc-400">{story.caption}</figcaption>
+            </figure>
           </div>
-
-
-
-          {/* 圆点指示器 */}
-          <div className="flex items-center justify-center gap-2">
-            {ITEMS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollTo(i)}
-                aria-label={`Go to card ${i + 1}`}
-                className={[
-                    "h-2.5 w-2.5 rounded-full transition-all duration-300 ease-out hover:scale-125",
-                    active === i
-                      ? "bg-violet-500 w-6 shadow-[0_0_8px_rgba(139,92,246,0.6)]"
-                      : "bg-violet-300/50 hover:bg-violet-400/70",
-                ].join(" ")}
-
-              />
-            ))}
+          <div className="space-y-5 text-[15px] leading-[1.85] text-zinc-600 dark:text-zinc-300">
+            {story.paragraphs.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@ export default function Navbar() {
           {/* 右侧：社交图标 + 邮件 + 暗黑模式 */}
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
             <SocialLinks />
-            <EmailButton email="xbo@uwaterloo.ca" />
+            <EmailButton email="frankxbo@gmail.com" />
             <ThemeToggle />
           </div>
         </div>

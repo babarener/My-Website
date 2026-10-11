@@ -1,102 +1,96 @@
-// src/components/sections/Skills.tsx
-"use client";
-
-type PillGroup = {
+type SkillGroup = {
   title: string;
+  subtitle: string;
+  collaboration?: string[];
+  workflow?: string[];
   items: string[];
 };
 
-const GROUPS: PillGroup[] = [
+const GROUPS: SkillGroup[] = [
   {
-    title: "Programming Languages",
-    items: [
-      "Python", "SQL", "R", "C", "C++", "Bash", "TypeScript",
-      "JavaScript", "HTML", "CSS"
-    ],
+    title: "Business & collaboration",
+    subtitle: "Connect people, resources, and delivery.",
+    collaboration: ["Clarify ambiguous requests", "Connect the right people, data & resources", "Coordinate the work through delivery"],
+    items: ["Market Research", "Pain Point Discovery", "Client Relations", "Leadership", "Product", "Product–Market Fit", "KPI Tracking", "CRM", "SEO"],
   },
   {
-    title: "Data Science & Engineering",
-    items: [
-        "pandas", "NumPy", "scikit-learn", "PyTorch", "TensorFlow",
-        "Power BI", "SQL", "Azure", "Git",
-        "Regression", "Classification", "A/B Testing",
-        "ML Pipelines", "Experiment Design"
-    ],
+    title: "Data & analytics",
+    subtitle: "From a question to an actionable result.",
+    workflow: ["Frame", "Prepare", "Analyze", "Communicate"],
+    items: ["Experiment Design", "SQL", "Snowflake", "pandas", "NumPy", "Regression", "Classification", "A/B Testing", "scikit-learn", "PyTorch", "TensorFlow", "Power BI", "Report Automation", "ML Pipelines", "Azure", "Git"],
   },
   {
-    title: "Business Skills",
-    items: [
-      "Market Research","Pain Point Discovery", "SEO", "CRM", "Product",
-      "PMF", "KPI Tracking", "Client Relations", "leadership"
-    ],
+    title: "Programming languages",
+    subtitle: "Put it into practice.",
+    items: ["Python", "SQL", "R", "C", "C++", "Bash", "TypeScript", "JavaScript", "HTML", "CSS"],
   },
 ];
 
-function Pill({ text }: { text: string }) {
+function SkillList({ items, label }: { items: string[]; label: string }) {
   return (
-    <li
-      className="text-[11px] font-semibold px-2.5 py-1 rounded-full border border-zinc-200/70 dark:border-zinc-700
-                 text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-900/50"
-    >
-      {text}
-    </li>
+    <ul className="flex flex-wrap content-start gap-2" aria-label={label}>
+      {items.map((item) => (
+        <li key={item} className="rounded-md bg-zinc-100 px-2.5 py-1.5 text-[13px] leading-5 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">{item}</li>
+      ))}
+    </ul>
   );
 }
 
 export default function Skills() {
   return (
-    <section id="skills" className="scroll-mt-28 sm:scroll-mt-32">
-      {/* Outer card: identical border/radius/shadow/background to WorkExperience */}
-      <div className="relative w-full max-w-screen-xl mx-auto overflow-hidden rounded-3xl border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm bg-white dark:bg-zinc-950">
-
-        {/* Top striped header bar with gradient + subtle diagonal pattern */}
-        <div className="relative h-12 sm:h-14">
-          {/* gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-50 via-sky-50 to-teal-50 dark:from-[#0b1820] dark:via-[#0d1e25] dark:to-[#102428]" />
-
-          <div className="absolute inset-0 opacity-[0.12] dark:opacity-[0.08]">
-            <svg width="100%" height="100%">
-              <defs>
-                <pattern id="skills-stripe" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 0 40 L 40 0" stroke="rgb(170,190,255)" strokeWidth="1" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#skills-stripe)" />
-            </svg>
+    <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-28 rounded-3xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950 sm:scroll-mt-32">
+      <div className="px-6 py-9 sm:px-10 sm:py-12 lg:px-14">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end sm:gap-8">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-teal-800 dark:text-teal-300">Business meets analysis</p>
+            <h2 id="skills-heading" className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">Skills &amp; Tools</h2>
           </div>
-
-          {/* Badge + Title (same placement as other sections) */}
-          <div className="absolute left-4 sm:left-6 -bottom-6 flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-rose-500 text-white flex items-center justify-center shadow-md ring-4 ring-white dark:ring-zinc-950">
-              {/* tools/wrench icon */}
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
-                <path d="M21 2l-6 6M3 21l6-6M15 3a6 6 0 0 0 6 6M3 15a6 6 0 0 0 6 6" />
-                <path d="M9 7l8 8M7 9l8 8" />
-              </svg>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Skills</h2>
-          </div>
+          <p className="max-w-xs text-sm leading-6 text-zinc-500 dark:text-zinc-400">From understanding a business question to working with the data behind it.</p>
         </div>
-
-        {/* Content */}
-        <div className="px-6 sm:px-10 pt-16 pb-14">
-          {/* Three-column grid: 1 / 2 / 3 responsive like your example */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch">
-            {GROUPS.map((group) => (
-              <article
-                key={group.title}
-                className="h-full rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70
-                           bg-white/80 dark:bg-zinc-900/40 p-5 sm:p-6"
-              >
-                <h3 className="text-lg font-bold text-center text-zinc-900 dark:text-zinc-100">{group.title}</h3>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((t) => (
-                    <Pill text={t} key={t} />
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
+        <div className="mt-8 border-t border-zinc-200 dark:border-zinc-800">
+          {GROUPS.map((group, index) => (
+            <div key={group.title} className="grid gap-5 border-b border-zinc-200 py-7 last:border-b-0 last:pb-0 lg:grid-cols-[310px_minmax(0,1fr)] lg:gap-10 dark:border-zinc-800">
+              <div className="flex items-start gap-4">
+                <span aria-hidden="true" className="mt-1 text-xs tabular-nums text-teal-700 dark:text-teal-400">0{index + 1}</span>
+                <div>
+                  <h3 className="text-base font-medium text-zinc-900 sm:text-lg dark:text-zinc-100">{group.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{group.subtitle}</p>
+                </div>
+              </div>
+              <div>
+                {group.collaboration && (
+                  <div className="grid gap-5 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-6">
+                    <div>
+                      <h4 className="mb-3 text-xs font-medium tracking-wide text-teal-800 dark:text-teal-300">From request to delivery</h4>
+                      <ul aria-label="From request to delivery" className="space-y-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+                        {group.collaboration.map((item) => (
+                          <li key={item} className="flex items-start gap-2.5">
+                            <span aria-hidden="true" className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-teal-600 dark:bg-teal-400" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="border-t border-zinc-200 pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0 dark:border-zinc-800">
+                      <h4 className="mb-3 text-xs font-medium tracking-wide text-teal-800 dark:text-teal-300">Business &amp; market</h4>
+                      <SkillList items={group.items} label="Business and market skills" />
+                    </div>
+                  </div>
+                )}
+                {group.workflow && (
+                  <ol aria-label="Analytical workflow" className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-teal-800 sm:gap-x-3 sm:text-sm dark:text-teal-300">
+                    {group.workflow.map((step, i) => (
+                      <li key={step} className="inline-flex items-center gap-2 sm:gap-3">
+                        {i > 0 && <span aria-hidden="true" className="text-zinc-400">→</span>}
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                )}
+                {!group.collaboration && <SkillList items={group.items} label={group.title} />}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

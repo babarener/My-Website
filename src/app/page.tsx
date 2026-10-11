@@ -1,11 +1,10 @@
 // app/page.tsx
-import Link from "next/link";
+
 
 import PersonalLife from "../components/sections/PersonalLife";
 import Education from "../components/sections/Education";
 import WorkExperience from "../components/sections/WorkExperience";
 import Skills from "../components/sections/Skills";
-import Projects from "../components/sections/Projects";
 import Connect from "../components/sections/Connect";
 
 
@@ -22,14 +21,11 @@ export default function HomePage() {
       {/* ===== Work Experience ===== */}
       <WorkExperience />
       
-      {/* ====== PersonalLife ====== */}
-      <PersonalLife />
-
-      {/* ===== Projects ===== */}
-      <Projects />
-
-      {/* skills & tools */}
+      {/* Skills & Tools */}
       <Skills />
+
+      {/* Personal Life */}
+      <PersonalLife />
 
       {/* ===== Contact ===== */}
       <Connect />
@@ -44,162 +40,93 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section id="about" className="scroll-mt-28 sm:scroll-mt-32">
-      <div className="relative w-full max-w-screen-xl mx-auto overflow-hidden rounded-3xl border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm bg-white dark:bg-zinc-950">
-        {/* 顶部花纹带（柔和紫色渐变 + 菱格纹） */}
-          <div className="relative h-14 sm:h-16">
-            {/* 背景渐变 */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50 dark:from-[#221b10] dark:via-[#2a1e0d] dark:to-[#31210e]" />
-            {/* 浅紫色菱格纹（透明度极低） */}
-            <div className="absolute inset-0 opacity-[0.15] dark:opacity-[0.08]">
-              <svg width="100%" height="100%">
-               <defs>
-                 <pattern id="diamond" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                   <path d="M 0 15 L 15 0 L 30 15 L 15 30 Z" fill="none" stroke="rgb(186, 148, 255)" strokeWidth="0.4" />
-                 </pattern>
-               </defs>
-              <rect width="100%" height="100%" fill="url(#diamond)" />
-              </svg>
-      </div>
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-28 sm:scroll-mt-32 overflow-hidden rounded-3xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="px-6 py-8 sm:px-10 sm:py-12 lg:px-14">
+        <div>
+          <h2 id="about-heading" className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">Who I Am</h2>
 
-          {/* 左上角标圆钮 + 标题 */}
-          <div className="absolute left-4 sm:left-6 -bottom-6 flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-rose-500 text-white flex items-center justify-center shadow-md ring-4 ring-white dark:ring-zinc-950">
-              {/* 人物轮廓图标 */}
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" />
-                <path d="M4 20a8 8 0 0 1 16 0" strokeLinecap="round" />
-              </svg>
+          <div className="mt-7 grid gap-9 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12">
+            <div>
+              <h3 className="max-w-[720px] text-[32px] font-semibold leading-[1.14] tracking-[-0.035em] text-zinc-900 sm:text-[42px] lg:text-[46px] dark:text-zinc-100">
+                <span className="block">Understanding business.</span>
+                <span className="mt-1 block text-rose-700 dark:text-rose-300">Turning data into decisions.</span>
+              </h3>
+              <p className="mt-6 max-w-[640px] text-base leading-7 text-zinc-600 sm:text-[17px] sm:leading-8 dark:text-zinc-300">
+                I enjoy asking questions, understanding how a business works, and using data to help people make informed decisions. I’m most engaged when I can work closely with others and see how my work makes a difference.
+              </p>
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">About Me</h2>
+
+            <aside aria-label="My background" className="border-t border-zinc-200 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-2 dark:border-zinc-800">
+              <dl className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:gap-7">
+                <div>
+                  <dt className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">Currently</dt>
+                  <dd className="text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                    <span className="block font-semibold text-zinc-800 dark:text-zinc-200">Northbridge Financial</span>
+                    Advanced Analytics
+                  </dd>
+                </div>
+                <div>
+                  <dt className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">Education</dt>
+                  <dd className="text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                    <span className="block font-semibold text-zinc-800 dark:text-zinc-200">University of Waterloo</span>
+                    Data Science student
+                  </dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-        </div>
 
-        {/* 文字主体（两栏） */}
-        <div className="px-4 sm:px-10 pt-12 pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {/* 左列 */}
+          <div className="mt-9 grid gap-4 border-t border-zinc-200 pt-7 sm:mt-10 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-8 dark:border-zinc-800">
+            <h3 className="pt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">Outside of work</h3>
             <div>
-              <h3 className="flex items-center gap-2 text-zinc-900 dark:text-zinc-100 font-semibold">
-                <span className="text-lg">🌐</span> My Journey
-              </h3>
-              <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                I was born in Beijing twenty-one years ago. As a kid, I spent most of my time outside, exploring freely without much limits—and those years were genuinely happy. My family moved often, and I ended up attending four different elementary schools, living in cities across China. 
+              <p className="max-w-3xl text-[15px] leading-7 text-zinc-600 dark:text-zinc-300">
+                Outside of work, I’m a <span className="font-medium text-zinc-900 dark:text-zinc-100">competitive powerlifter, a Go player, and a music lover.</span> My current goal is to qualify for the <span className="font-medium text-zinc-900 dark:text-zinc-100">Canadian Powerlifting Union National Championships.</span> I like having something to work toward, but I also enjoy exploring unfamiliar places, cultures, and ideas simply out of curiosity.
               </p>
-
-              <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                For most of my early life, I didn’t think much about direction or purpose; I simply went with what felt comfortable. It wasn’t until high school that I started learning to take control of my time and develop a sense of ambition. 
-              </p>
-
-              <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Entering university, I still saw myself primarily as a student—following instructions and absorbing what others taught. But over time, I’ve gained perspective and skills, and I’ve begun asking deeper questions about why I exist and how I can bring values. I want to contribute to something meaningful, to help build a better future. I’m genuinely glad that I’ve come to think this way, and I will to keep moving forward in that direction.
-              </p>
-            </div>
-
-            {/* 右列 */}
-            <div>
-              <h3 className="flex items-center gap-2 text-zinc-900 dark:text-zinc-100 font-semibold">
-                <span className="text-lg">👤</span> Who I Am
-              </h3>
-              <p className="mt-3 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                I’m a software-minded analyst who loves connecting data and intuition.  
-                I use <strong>Python</strong>, <strong>React</strong>, and <strong>SQL</strong> to find structure in chaos,  
-                build dashboards with <strong>Power BI</strong> and <strong>ETL automation</strong>,  
-                and prototype ideas with <strong>PyTorch</strong> and <strong>scikit-learn</strong> to uncover trends that tell stories.
-              </p>
-
-              <p className="mt-4 text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Those are what I usually put on my resume.  
-                But I’m more than that. I’m a real, curious, sometimes uncertain person trying to figure things out.  
-                I’m grateful for what I have, and I hope to create something that makes the world around me a little better.  
-                I’m a <strong>competing powerlifter</strong>, a <strong>Go player</strong>, a <strong>music lover</strong>, and a <strong>traveler....</strong> I enjoys learning about different cultures and ideas that make me more complete as a person
-              </p>
-
-
-              <a
-                href="#personal-life"
-                className="inline-flex items-start gap-2 mt-5 text-base sm:text-lg font-semibold break-words text-rose-600 hover:text-rose-500 dark:text-rose-400 dark:hover:text-rose-300 transition-colors"
-              >
-               <span>→ See more about my personal life</span>
+              <a href="#personal-life" className="mt-2 inline-flex min-h-[44px] items-center gap-3 rounded text-sm font-medium text-rose-700 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-500 dark:text-rose-300">
+                More about life outside work <span aria-hidden="true">↗</span>
               </a>
-
             </div>
-          </div>
-
-          {/* 分隔线 + 一句当前关注点（可改内容） */}
-          <div className="my-8 h-px bg-zinc-200 dark:bg-zinc-800" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-center gap-2">
-              <span className="text-lg">⏳</span>
-              <h4 className="font-semibold text-zinc-900 dark:text-zinc-100">What I’m focusing on Now</h4>
-            </div>
-            <p className="text-[15px] font-medium text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              These days, I’m learning how to slow down and think deeper — to build with intention, not just efficiency. I’m exploring how technology, design, and discipline intersect to create something truly meaningful.
-            </p>
           </div>
         </div>
 
-        
+        <div className="mt-10 border-t border-zinc-200 pt-9 sm:mt-12 sm:pt-10 dark:border-zinc-800">
+          <h3 id="journey-heading" className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl dark:text-zinc-100">My Journey</h3>
+          <ol aria-labelledby="journey-heading" className="mt-8">
+            <li className="relative pl-8 sm:pl-10 pb-9">
+              <span aria-hidden="true" className="absolute left-[5px] top-3 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <span aria-hidden="true" className="absolute left-0 top-[7px] h-[11px] w-[11px] rounded-full border-2 border-rose-500 bg-white dark:bg-zinc-950" />
+              <div className="grid gap-2 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-8">
+                <h4 className="text-base font-semibold leading-7 text-zinc-900 dark:text-zinc-100">Growing up in China</h4>
+                <p className="max-w-3xl text-[15px] leading-7 text-zinc-600 sm:text-base dark:text-zinc-300">I grew up in China and attended four elementary schools across different cities, including both boarding and day schools. Toward the end of middle school, I felt that an exam-focused education wouldn’t take me where I wanted to go. After discussing it with my parents, I <strong className="font-semibold text-zinc-900 dark:text-zinc-100">chose a different path</strong>: I began an international curriculum in Grade 11 and was later admitted to the University of Waterloo’s Faculty of Mathematics.</p>
+              </div>
+            </li>
+            <li className="relative pl-8 sm:pl-10 pb-9">
+              <span aria-hidden="true" className="absolute left-[5px] top-3 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <span aria-hidden="true" className="absolute left-0 top-[7px] h-[11px] w-[11px] rounded-full border-2 border-rose-500 bg-white dark:bg-zinc-950" />
+              <div className="grid gap-2 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-8">
+                <h4 className="text-base font-semibold leading-7 text-zinc-900 dark:text-zinc-100">Finding my direction at Waterloo</h4>
+                <p className="max-w-3xl text-[15px] leading-7 text-zinc-600 sm:text-base dark:text-zinc-300">At Waterloo, my interest in physics initially drew me toward applied mathematics and physics, and I also explored actuarial courses. Through these experiences, I learned that I’m most motivated when I can put ideas into practice, see tangible progress, and make an impact. That realization led me to <strong className="font-semibold text-zinc-900 dark:text-zinc-100">switch to data science</strong> in my second year.</p>
+              </div>
+            </li>
+            <li className="relative pl-8 sm:pl-10 pb-9">
+              <span aria-hidden="true" className="absolute left-[5px] top-3 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <span aria-hidden="true" className="absolute left-0 top-[7px] h-[11px] w-[11px] rounded-full border-2 border-rose-500 bg-white dark:bg-zinc-950" />
+              <div className="grid gap-2 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-8">
+                <h4 className="text-base font-semibold leading-7 text-zinc-900 dark:text-zinc-100">Exploring business through experience</h4>
+                <p className="max-w-3xl text-[15px] leading-7 text-zinc-600 sm:text-base dark:text-zinc-300">Along the way, I tried building a startup and took on responsibilities in marketing, management, and customer outreach. My corporate internships then brought me into <strong className="font-semibold text-zinc-900 dark:text-zinc-100">business intelligence and data analysis</strong>, where I found a strong fit for my interests. During my time at Northbridge, I’ve worked with several departments and learned how their teams operate and make decisions.</p>
+              </div>
+            </li>
+            <li className="relative pl-8 sm:pl-10 pb-0">
+              
+              <span aria-hidden="true" className="absolute left-0 top-[7px] h-[11px] w-[11px] rounded-full border-2 border-rose-500 bg-rose-500" />
+              <div className="grid gap-2 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-8">
+                <h4 className="text-base font-semibold leading-7 text-zinc-900 dark:text-zinc-100">Where I fit today</h4>
+                <p className="max-w-3xl text-[15px] leading-7 text-zinc-600 sm:text-base dark:text-zinc-300">These experiences have clarified what I enjoy most: talking with people, understanding their business challenges, and <strong className="font-semibold text-zinc-900 dark:text-zinc-100">turning data into useful insights</strong>. I value the technical work that makes analysis possible, but my strongest motivation comes from connecting that work to decisions and outcomes.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
-function RefinedBackground({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="relative overflow-hidden rounded-3xl border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm min-h-[22rem] sm:min-h-[26rem]">
-      {/* 渐变背景 */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-rose-50 via-amber-50 to-indigo-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900" />
-
-      {/* 柔和网格 */}
-      <svg
-        className="absolute inset-0 -z-10 opacity-25 dark:opacity-15"
-        width="100%"
-        height="100%"
-        aria-hidden="true"
-      >
-        <defs>
-          <pattern id="softGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
-          </pattern>
-        </defs>
-        <rect
-          width="100%"
-          height="100%"
-          fill="url(#softGrid)"
-          className="text-zinc-300 dark:text-zinc-800"
-        />
-      </svg>
-
-      {/* 微弱噪点层 */}
-      <div className="absolute inset-0 -z-5 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:6px_6px] mix-blend-overlay" />
-
-      <div className="relative px-4 sm:px-8 md:px-10 py-8 sm:py-12">{children}</div>
-    </div>
-  );
-}
-
-
-/* ---------- SVG Grid Pattern ---------- */
-function GridPattern({ className = "" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" className={`absolute inset-0 -z-10 ${className}`} width="100%" height="100%">
-      <defs>
-        <pattern id="smallGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.5" />
-        </pattern>
-        <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#smallGrid)" />
-          <path d="M 120 0 L 0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)" className="text-zinc-200 dark:text-zinc-800" />
-    </svg>
-  );
-}
-

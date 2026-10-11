@@ -1,92 +1,46 @@
-// src/sections/Education.tsx
+import Image from "next/image";
+
 export default function Education() {
   return (
-    <section id="education" className="scroll-mt-28 sm:scroll-mt-32">
-      <div className="relative w-full max-w-screen-xl mx-auto overflow-hidden rounded-3xl border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm bg-white dark:bg-zinc-950">
-        {/* 顶部花纹带（淡蓝色） */}
-        <div className="relative h-12 sm:h-14">
-          {/* 背景渐变 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-50 via-blue-50 to-indigo-50 dark:from-[#0b1220] dark:via-[#0e1628] dark:to-[#111a30]" />
-           {/* 条纹效果（非常浅的蓝色、透明度极低） */}
-           <div className="absolute inset-0 opacity-[0.12] dark:opacity-[0.08]">
-             <svg width="100%" height="100%">
-               <defs>
-                 <pattern id="stripe" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 0 40 L 40 0" stroke="rgb(130, 180, 255)" strokeWidth="1" />
-                 </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#stripe)" />
-             </svg>
-          </div>
+    <section id="education" aria-labelledby="education-heading" className="scroll-mt-28 sm:scroll-mt-32 rounded-3xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="px-6 py-8 sm:px-10 sm:py-12 lg:px-14">
+        <h2 id="education-heading" className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl dark:text-zinc-100">Education</h2>
 
-          {/* 左上角标圆钮 + 标题（与其他 section 对齐） */}
-          <div className="absolute left-4 sm:left-6 -bottom-6 flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-rose-500 text-white flex items-center justify-center shadow-md ring-4 ring-white dark:ring-zinc-950">
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
-                <path d="M3 9l9-4 9 4-9 4-9-4Z" />
-                <path d="M7 11v4a5 5 0 0 0 10 0v-4" />
-              </svg>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Education</h2>
-          </div>
-        </div>
-
-        {/* 主体内容（无时间线，icon 居中，右侧留白） */}
-        <div className="px-4 sm:px-10 pt-12 pb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-[72px_1fr] gap-4 pr-0 sm:pr-6 xl:pr-8">
-            {/* 左侧：仅保留 icon，垂直水平居中 */}
-            <div className="flex items-center justify-start sm:justify-center">
-              <div className="h-12 w-12 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700 flex items-center justify-center text-sm font-semibold text-zinc-700 dark:text-zinc-200">
-                <img
-                    src="/media/Education/uwicon.png"   
-                    alt="University of Waterloo"
-                    className="h-10 w-10 object-contain"
-                />
+        <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+          <Image src="/media/Education/uwicon.png" alt="University of Waterloo crest" width={64} height={64} className="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16" />
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+              <div>
+                <h3 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
+                  <a href="https://uwaterloo.ca/" target="_blank" rel="noreferrer" className="rounded underline-offset-4 hover:text-rose-700 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-500 dark:hover:text-rose-300">University of Waterloo</a>
+                </h3>
+                <p className="mt-2 text-lg font-medium text-zinc-800 dark:text-zinc-200">BMath, Data Science</p>
+                <p className="mt-1 text-sm leading-6 text-zinc-500 dark:text-zinc-400">Minor in Combinatorics &amp; Optimization</p>
+              </div>
+              <div className="shrink-0 lg:pt-1 lg:text-right">
+                <p className="text-sm font-medium tabular-nums text-zinc-600 dark:text-zinc-300">Sep 2022 <span className="mx-1 text-zinc-400">—</span> Dec 2027</p>
+                <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">Expected graduation: Dec 2027</p>
               </div>
             </div>
-
-            {/* 右侧内容卡片（占满右列，右侧有间距） */}
-            <article className="w-full rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/40 p-4 sm:p-6">
-
-              <h3 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-                BMath, Data Science — Minor in Combinatorics & Optimization
-              </h3>
-
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                <a
-                  href="https://uwaterloo.ca/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline decoration-dotted underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-200"
-                >
-                  University of Waterloo
-                </a>{" "}
-                • Sep 2022 — May 2027
-              </p>
-
-              <p className="mt-3 text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Coursework: Algorithms & Data Structures, Graph Theory, OOP Design, Regression & Predictive Modeling, C++, Python, R. 
-              </p>
-              <p className="mt-3 text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Activities: Strength Club, Tea Club, intramural basketball, and startup projects.
-              </p>
-
-              {/* tags（保持紧凑） */}
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {["Python", "C++", "SQL", "R", "Compilers", "Algorithms", "Data Analysis", "Computer Architecture", "Operating Systems", "Data Structures"].map((t) => (
-                  <li
-                    key={t}
-                    className="text-xs px-2.5 py-1 rounded-full border border-zinc-200/70 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-900/50"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </article>
           </div>
         </div>
 
-
+        <div className="mt-8 grid gap-7 border-t border-zinc-200 pt-7 sm:mt-9 sm:grid-cols-[1.35fr_1fr] sm:gap-10 dark:border-zinc-800">
+          <div>
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">Selected coursework</h4>
+            <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm leading-6 text-zinc-700 lg:grid-cols-2 dark:text-zinc-300">
+              <li>Regression &amp; Predictive Modeling</li>
+              <li>Algorithms &amp; Data Structures</li>
+              <li>Graph Theory</li>
+              <li>OOP Design</li>
+              <li className="text-zinc-500 dark:text-zinc-400">C++, Python, R</li>
+            </ul>
+          </div>
+          <div className="border-t border-zinc-200 pt-6 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0 dark:border-zinc-800">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">Beyond the classroom</h4>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-700 dark:text-zinc-300">Strength Club, Tea Club, intramural basketball, and startup projects.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
