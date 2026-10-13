@@ -124,7 +124,7 @@ const experiences = [
       "Marketing",
       "Leadership"
     ],
-    "logo": "/media/WorkExperience/swift_wellness_logo.jfif",
+    "logo": "/media/WorkExperience/swift_wellness_logo.jpg",
     "highlights": [
       "practical understanding",
       "customer needs",
